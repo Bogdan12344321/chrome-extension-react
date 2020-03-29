@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import ResetPassword from '../component/ResetPassword';
 import LoginForm from '../component/LoginForm';
 import CompanyLogo from '../component/CompanyLogo';
 import OfflineWarning from '../component/OfflineWarning';
@@ -13,10 +13,19 @@ export default function () {
 
       const background = chrome.extension.getBackgroundPage();
       this.app = background.app;
-
+      this.state = {
+        showTemplate: true
+      }
       // bindings
       this.joinURL = this.joinURL.bind(this);
+      this.checkClick = this.checkClick.bind(this);
     }
+
+    checkClick() {
+      this.setState({ showTemplate: !this.state.showTemplate });
+    }
+
+
 
     joinURL() {
       let joinURL = t('JoinURL');
@@ -25,7 +34,20 @@ export default function () {
     }
 
     render() {
+      const { showTemplate } = this.state;
       const { props: { online } } = this;
+
+      let button;
+
+      if (showTemplate) {
+        button = <LoginForm
+          func={this.checkClick}
+        />;
+      } else {
+        button = <ResetPassword
+          func={this.checkClick}
+        />;
+      }
 
       return (
         <div id="login-template" className="row">
@@ -34,12 +56,12 @@ export default function () {
           <CompanyLogo />
 
           <div className="top-border">
-            <LoginForm />
+            {button}
           </div>
 
           <div className="top-border">
             <div className="text-center dont-have-an-account">
-              { t('NoAccountQuestion') }
+              {t('NoAccountQuestion')}
             </div>
 
             <div className="join-PIA">
@@ -57,7 +79,7 @@ export default function () {
                 // only render href if online
                 href={online ? this.joinURL() : undefined}
               >
-                { t('JoinText') }
+                {t('JoinText')}
               </a>
             </div>
           </div>

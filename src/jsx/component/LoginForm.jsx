@@ -13,15 +13,15 @@ class LoginForm extends Component {
     const background = chrome.extension.getBackgroundPage();
     this.renderer = background.renderer;
     this.app = background.app;
-
     // properties
     this.i18n = this.app.util.i18n;
     this.user = this.app.util.user;
-
     // bindings
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    const { handleColorChange } = this.props;
   }
+
 
   onInputChange({ target: { value, name } }) {
     switch (name) {
@@ -40,6 +40,7 @@ class LoginForm extends Component {
       }
     }
   }
+
 
   handleSubmit(event) {
     return onSubmit(this.renderer, this.app, event);
@@ -91,7 +92,7 @@ class LoginForm extends Component {
 
           <div className="form-group text-center">
             <button id="submit-form-button" type="submit" className="btn-success form-control">
-              { t('LoginText') }
+              {t('LoginText')}
             </button>
 
             <div className="resetpw text-center">
@@ -100,10 +101,12 @@ class LoginForm extends Component {
                 karget="_blank"
                 rel="noopener noreferrer"
                 className={online ? '' : 'disabled'}
+                onClick={this.props.func}
               >
-                { t('ResetPasswordText') }
+                {t('ResetPasswordText')}
               </a>
             </div>
+
 
             <div className="loader login-loader hidden" />
           </div>

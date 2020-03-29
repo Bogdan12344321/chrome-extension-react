@@ -95,6 +95,15 @@
   "UsernamePlaceholder": {
     "message": "Username"
   },
+  "CurrentPasswordPlaceholder": {
+    "message": "Current password"
+  },
+  "NewPasswordPlaceholder": {
+    "message": "New password"
+  },
+  "ConfrimPasswordPlaceholder": {
+    "message": "Confrim password"
+  },
   "PasswordPlaceholder": {
     "message": "Password"
   },
@@ -104,11 +113,23 @@
   "LoginText": {
     "message": "Login"
   },
+  "BackText": {
+    "message": "Back"
+  },
+  "ResetText": {
+    "message": "Change password"
+  },
   "SelectRegionText": {
     "message": "Select a region"
   },
   "WrongUsernameAndPassword": {
     "message": "Username and/or password are incorrect."
+  },
+  "PasswordMustMatch": {
+    "message": "New password and confirm password must match."
+  },
+  "PasswordMustMatchRegex": {
+    "message": "Password must include uppercase, lowercase, number, and special character."
   },
   "NetworkError": {
     "message": "Login request failed due to a network error. Please try again."
@@ -314,7 +335,7 @@
   "BlockThirdpartycookiesTooltip": {
     "message": "Disable %{browser} from accepting cookies from third party websites. Third party cookies can be used to track your visit to a website by a third party website or web service."
   },
-  "BlockCameraAccess":  {
+  "BlockCameraAccess": {
     "message": "Block camera access"
   },
   "BlockCameraAccessTooltip": {
