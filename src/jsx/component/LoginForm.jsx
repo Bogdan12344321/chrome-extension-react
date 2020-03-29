@@ -19,7 +19,6 @@ class LoginForm extends Component {
     // bindings
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
-    const { handleColorChange } = this.props;
   }
 
 

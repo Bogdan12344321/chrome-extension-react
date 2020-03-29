@@ -1,11 +1,5 @@
 export default function onReset(obj, app, event) {
     event.preventDefault();
-
-    const {
-        user
-    } = app.util;
-
-    // valdiateRegex(obj, errorDiv)
     const errorDiv = document.querySelector('.text-danger');
     if (!valdiateRegex(obj)) {
         showErros(errorDiv, 'PasswordMustMatchRegex')

@@ -18,7 +18,6 @@ class ResetPasswordForm extends Component {
         // bindings
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
-        // this.onResetFunc = this.onResetFunc.bind(this);
         this.state = {
             newPassword: '',
             confirmPassword: ''
@@ -29,7 +28,6 @@ class ResetPasswordForm extends Component {
 
 
     onInputChange({ target: { value, name } }) {
-        // alert(value + "----" + name);
         switch (name) {
             case 'newPassword': {
                 this.setState({ newPassword: value });
@@ -45,14 +43,7 @@ class ResetPasswordForm extends Component {
                 debug(`invalid name for login field: ${value}`);
             }
         }
-        // alert(this.refs.NewPasswordPlaceholder);
     }
-
-    // onResetFunc(event) {
-    //     event.preventDefault();
-    //     alert(this.state.newPassword);
-    //     alert(this.state.currentPassword);
-    // }
 
     handleSubmit(event) {
         return onReset(this.state, this.app, event);
@@ -63,10 +54,7 @@ class ResetPasswordForm extends Component {
     }
 
     render() {
-        const {
-            app: { util: { user } },
-            props: { online }
-        } = this;
+
 
         return (
             <form id="login" onSubmit={this.handleSubmit}>
